@@ -1,0 +1,37 @@
+{
+  "format": "antiai-policy",
+  "version": 1,
+  "policy": "deny-ai-access",
+  "enforcement": "best-effort-vscode-workspace",
+  "vscode_settings": ".vscode/settings.json",
+  "sandbox_profile": "AntiAI-Guard.wsb",
+  "scope": {
+    "include": [
+      "project source code",
+      "project documentation",
+      "project configuration",
+      "project history and metadata"
+    ],
+    "tools": [
+      "AI coding assistants in IDEs",
+      "AI coding agents and CLI tools",
+      "AI-powered extensions and code completion",
+      "AI chat, review, indexing, and analysis services"
+    ]
+  },
+  "rules": [
+    "AI tools must not read, index, ingest, analyze, transmit, generate, or modify project contents.",
+    "Do not upload, paste, or otherwise provide project contents to AI services.",
+    "Disable AI workspace indexing, context collection, and automatic code-completion for this project in supported tools.",
+    "Do not treat this policy file as proof that access has been technically blocked."
+  ],
+  "exceptions": [],
+  "limitations": [
+    "The VS Code workspace setting disables built-in VS Code AI features and Copilot extensions when this project is opened in VS Code.",
+    "The policy file is not enforced automatically by other IDEs, CLI tools, or third-party AI extensions.",
+    "The sandbox profile isolates only applications launched inside Windows Sandbox. It does not block AI applications running on the host.",
+    "The sandbox has network access for cloud tools. Anything explicitly typed, pasted, or uploaded inside it can be sent to those services.",
+    "It cannot prevent a person from copying project contents into an AI service.",
+    "Windows Sandbox availability depends on the Windows edition and optional feature being enabled."
+  ]
+}
